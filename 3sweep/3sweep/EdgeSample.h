@@ -1,3 +1,5 @@
+//根据现有的边缘，进行采样，转化为3D坐标后传给OBJ 
+
 #ifndef EDGESAMPLE_H
 #define EDGESAMPLE_H
 
@@ -11,6 +13,6 @@ public:
 	virtual std::vector<Vector3D> getSample();  // return the sample points' coordinates
 
 private:
-	2DBoundary boundary;
+	2DBoundary *boundary;
 };
 #endif
