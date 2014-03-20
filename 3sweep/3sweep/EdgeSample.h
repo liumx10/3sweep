@@ -1,6 +1,8 @@
 #ifndef EDGESAMPLE_H
 #define EDGESAMPLE_H
 
+#include "2DBoundary.h"
+
 class EdgeSample{
 public:
 	virtual void init(std::vector<Vector3D>);   // initlize by user's input. only the first will use this function
@@ -9,6 +11,6 @@ public:
 	virtual std::vector<Vector3D> getSample();  // return the sample points' coordinates
 
 private:
-	std::vector<Vector3D> samples;
+	2DBoundary boundary;
 };
 #endif
