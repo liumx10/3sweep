@@ -3,8 +3,10 @@
 
 #include "EdgeSample.h"
 #include "CyliEdgeSample.h"
+#include "library.h"
 
 enum Instruct = {draw, drag, rotate};
+enum Status = {straight, bend};
 
 class Control{
 public:
@@ -21,11 +23,12 @@ public:
 		}
 	}
 
-	EdgeSample getNewEdge(){
-		return NULL;
-	}
-	
-	
+	EdgeSample getNewEdge(Vector2D &mousePosition);
+
+private:
+	Status status;
+	Vector2D oldMoustPosition;
+	EdgeSample* topEdge->
 }；
 
 #endif
