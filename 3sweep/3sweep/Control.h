@@ -10,7 +10,17 @@ enum Status = {straight, bend};
 
 class Control{
 public:
-	void control(Instruct is){
+	Control(){
+		obj = new Obj;
+		topEdge = NULL;
+		compute3D = new Compute3D;		
+	}
+	~Control(){
+		delete compute3D;
+		delete obj;
+		delete topEdge;
+	}
+	/*void control(Instruct is){
 		switch is{
 			case draw:
 				break;
@@ -21,14 +31,25 @@ public:
 			default:
 				break;
 		}
-	}
+	}*/
 
 	EdgeSample getNewEdge(Vector2D &mousePosition);
+	void initBoundary(){
+		boundary = new Boundary;
+		boundary->init();
+	}
+	void setStatus(Status &s) { status = s; }
+	void setFirstEdge(std::vector<Vector2D> &v);
 
+	Obj* getObj() { return &obj; }
+	void objAddSample() { obj.insertSample(compute3D->compute3D(topEdge->getSample())); }
 private:
 	Status status;
+	Obj* obj;
 	Vector2D oldMoustPosition;
-	EdgeSample* topEdge->
+	EdgeSample* topEdge;
+	Compute3D* compute3D;
+	Boundary* boundary;
 }；
 
 #endif

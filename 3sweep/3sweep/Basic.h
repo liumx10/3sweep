@@ -97,4 +97,6 @@ struct HVector
 };
 typedef HVector Hvector;
 
+typedef Vector3D[3] Triangle;
+
 #endif;

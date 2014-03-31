@@ -12,7 +12,7 @@ public:
 	}
 	virtual void init(std::vector<Vector2D>) = 0;   // initlize by user's input. only the first will use this function
 	virtual EdgeSample clone() = 0;   // get next EdgeSample 
-	virtual std::vector<Vector3D> getSample() = 0;  // return the sample points' coordinates in 3D
+	virtual std::vector<Vector3D> getSample() = 0;  // return the sample points' coordinates in 2D
 
 	Vector2D getNormal() {  return normal; }
 	//virtual void adjustNormal() = 0;

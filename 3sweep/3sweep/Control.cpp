@@ -39,6 +39,7 @@ EdgeSample Control::getNewEdge(Vector2D &mousePosition){
 		std::cout << "status is wrong" << endl;
 	}
 
+	delete topEdge;
 	topEdge = &edgeSample;
 	oldMousePosition = mousePosition;
 	return edgeSample;
