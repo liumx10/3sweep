@@ -3,9 +3,19 @@
 
 #include "library.h"
 
-class Boundary{
+class Boundary
+{
 public:
 	void init();
-	std::vector<Vector2D> intersection(std::vector<Vector2D> v); 
+	std::vector<Vector2D> calcIntersection(std::vector<Vector2D> v); 
+	bool setCycleGraph(std::vector<std::vector<Vector2D> >);
+
+	//just for debug
+	void test_getSegmentIntersection();
+
+private:
+	std::vector<std::vector<Vector2D> > edge;
+	bool getSegmentIntersection(Hline, Hline, Vector2D&);
 };
+
 #endif
