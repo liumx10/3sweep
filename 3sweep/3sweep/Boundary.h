@@ -3,9 +3,24 @@
 
 #include "library.h"
 
-class Boundary{
+/***********************************************************************
+* This class is used to find exact boundary
+* Author: Hu Sixing
+* Date  : mar. 26th. 2014
+************************************************************************/
+class Boundary
+{
 public:
-	void init();
-	std::vector<Vector2D> intersection(std::vector<Vector2D> v); 
+	void init(const std::string &imgName);
+	std::vector<Vector2D> calcIntersection(std::vector<Vector2D> v); 
+	bool setCycleGraph(std::vector<std::vector<Vector2D> >);
+
+	//just for debug
+	void test_getSegmentIntersection();
+
+private:
+	std::vector<std::vector<Vector2D> > edge;
+	bool getSegmentIntersection(Hline, Hline, Vector2D&);
 };
+
 #endif

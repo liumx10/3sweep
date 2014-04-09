@@ -39,7 +39,21 @@ EdgeSample Control::getNewEdge(Vector2D &mousePosition){
 		std::cout << "status is wrong" << endl;
 	}
 
+	delete topEdge;
 	topEdge = &edgeSample;
 	oldMousePosition = mousePosition;
 	return edgeSample;
+}
+
+void Control::setFirstEdge(std::vector<Vector2D> &v){
+	switch(bottomShape){
+		case circle:
+			topEdge = new CyliEdgeSample;
+			break;
+		case square:
+		default:
+			break;
+	}
+	topEdge->init(v);
+	topEdge->setBoundary(boundary);
 }

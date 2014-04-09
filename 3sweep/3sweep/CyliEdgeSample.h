@@ -12,7 +12,7 @@ public:
 	void init(std::vector<Vector3D> v);
 	CyliEdgeSample clone();
 	void sample();
-	std::vector<Vector3D> get3DSample();
+	std::vector<Vector2D> getSample(){ return samples; }
 
 	double getA() { return a; }
 	double getB() { return b; }

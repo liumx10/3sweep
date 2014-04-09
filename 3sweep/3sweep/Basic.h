@@ -30,7 +30,7 @@ struct V2
 	double x;
 	double y;
 
-	V2()
+	V2(){}
 	V2(double _x, double _y): x(_x), y(_y){}
 	V2(const V2& v): x(v.x), y(v.y){}
 
@@ -44,12 +44,12 @@ struct V2
 	double value() {return sqrt(x*x+y*y); }
 	double distanceTo(const V2 &p){ return sqrt(pow(x-p.x, 2)+pow(y-p.y, 2)); }
 
-	void show(){printf("(%.2lf, %.2lf)", x, y)};
+	void show(){printf("(%.2lf, %.2lf)", x, y);}
 	V2 getNormal() { return V2(y, -x); }
 };
 
-#typedef V3 Vector3D;
-#typedef V2 Vector2D;
+typedef V3 Vector3D;
+typedef V2 Vector2D;
 
 double getRotateAngle(double x1, double y1, double x2, double y2)
 {
@@ -85,5 +85,18 @@ double getRotateAngle(double x1, double y1, double x2, double y2)
 	degree = angle *  180.0 / nyPI;
 	return degree;
 }
+
+typedef std::pair<Vector2D, Vector2D> Hline;
+
+struct HVector
+{
+	double x, y;
+	HVector(){}
+	HVector(const Vector2D v1, const Vector2D v2) {x = v2.x-v1.x; y = v2.y-v1.y;} //vector(v1->v2)
+	double operator * (const HVector &v) { return double(x*v.y - v.x*y); }//2D cross product
+};
+typedef HVector Hvector;
+
+typedef Vector3D[3] Triangle;
 
 #endif;
