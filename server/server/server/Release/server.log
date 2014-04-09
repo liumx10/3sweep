@@ -1,0 +1,23 @@
+﻿生成启动时间为 2014/4/9 22:09:05。
+     1>项目“D:\code\3sweep\server\server\server\server.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Release\server.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         所有输出均为最新。
+         所有输出均为最新。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code\3sweep\server\server\Release\server.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\server.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\code\3sweep\server\server\Release\server.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\code\3sweep\server\server\Release\server.lib" /MACHINE:X86 Release\server.obj
+         Release\stdafx.obj ws2_32.lib 
+         正在生成代码
+         已完成代码的生成
+         server.vcxproj -> D:\code\3sweep\server\server\Release\server.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\code\3sweep\server\server\Release\server.exe;#1" /manifest Release\server.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Release\server.unsuccessfulbuild”。
+         正在对“Release\server.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\code\3sweep\server\server\server\server.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.48
