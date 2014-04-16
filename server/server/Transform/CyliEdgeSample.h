@@ -4,7 +4,7 @@
 #define CYLIEDGESAMPLE_H
 
 #include "EdgeSample.h"
-#include "library.h"
+#include "../library.h"
 
 class CyliEdgeSample: public EdgeSample{
 public:

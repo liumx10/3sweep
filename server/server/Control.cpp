@@ -1,6 +1,6 @@
 #include "Control.h"
 
-EdgeSample Control::getNewEdge(Vector2D &mousePosition){
+EdgeSample* Control::getNewEdge(Vector2D &mousePosition){
 	EdgeSample edgeSample = topEdge->clone();
 	if (status == straight){
 		Vector2D direct = edgeSample->getNormal()*
@@ -37,12 +37,13 @@ EdgeSample Control::getNewEdge(Vector2D &mousePosition){
 		edgeSample.sample();
 	}else{
 		std::cout << "status is wrong" << endl;
+		return NULL;
 	}
 
 	delete topEdge;
 	topEdge = &edgeSample;
 	oldMousePosition = mousePosition;
-	return edgeSample;
+	return topEdge;
 }
 
 void Control::setFirstEdge(std::vector<Vector2D> &v){
@@ -56,4 +57,9 @@ void Control::setFirstEdge(std::vector<Vector2D> &v){
 	}
 	topEdge->init(v);
 	topEdge->setBoundary(boundary);
+}
+
+void Control::buildObj(Vector2D &mousePosition){
+	getNewEdge(mousePosition);	
+	obj->insertSample(compute3D->compute3D(topEdge->getSample()));
 }

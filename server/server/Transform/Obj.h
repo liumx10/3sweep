@@ -4,7 +4,7 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
 
-#include "library.h"
+#include "../library.h"
 
 class Obj{
 public:

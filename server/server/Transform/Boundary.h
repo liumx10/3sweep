@@ -1,7 +1,7 @@
 #ifndef BOUNDARY_H
 #define BOUNDARY_H
 
-#include "library.h"
+#include "../library.h"
 
 /***********************************************************************
 * This class is used to find exact boundary
