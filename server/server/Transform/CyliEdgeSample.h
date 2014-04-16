@@ -12,7 +12,6 @@ public:
 	void init(std::vector<Vector3D> v);
 	CyliEdgeSample clone();
 	void sample();
-	std::vector<Vector2D> getSample(){ return samples; }
 
 	double getA() { return a; }
 	double getB() { return b; }
@@ -21,8 +20,6 @@ public:
 	void setB(double B) { b = B; }
 
 	void clear(){ samples.clear(); }
-
-	std::vector<Vector2D> samples;  
 private:
 
 	double a;  // two arguments for a ellipse 

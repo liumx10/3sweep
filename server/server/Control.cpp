@@ -61,5 +61,5 @@ void Control::setFirstEdge(std::vector<Vector2D> &v){
 
 void Control::buildObj(Vector2D &mousePosition){
 	getNewEdge(mousePosition);	
-	obj->insertSample(compute3D->compute3D(topEdge->getSample()));
+	obj->insertSample(compute3D->compute3D(topEdge->getSamples()));
 }
