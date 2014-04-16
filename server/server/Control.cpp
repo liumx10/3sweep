@@ -1,7 +1,8 @@
+#include "stdafx.h"
 #include "Control.h"
 
 EdgeSample* Control::getNewEdge(Vector2D &mousePosition){
-	EdgeSample edgeSample = topEdge->clone();
+	EdgeSample* edgeSample = topEdge->clone();
 	if (status == straight){
 		Vector2D direct = edgeSample->getNormal()*
 						 (edgeSample->getNormal()*(mousePosition - oldMousePosition));

@@ -2,6 +2,7 @@
 #define BOUNDARY_H
 
 #include "../library.h"
+#include "../Basic/Basic.h"
 
 /***********************************************************************
 * This class is used to find exact boundary

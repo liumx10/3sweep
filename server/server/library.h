@@ -13,8 +13,9 @@
 #include "Transform/Obj.h"
 
 #include "CurveExtraction/CmCurveEx.h"
-#include "CurveExtractionStdafx.h"
+#include "CurveExtraction/CurveExtractionStdafx.h"
 
 #include "Basic/Basic.h"
+#include "Control.h"
 
 #endif

@@ -1,23 +1,299 @@
-﻿生成启动时间为 2014/4/9 22:09:05。
-     1>项目“D:\code\3sweep\server\server\server\server.vcxproj”在节点 2 上(build 个目标)。
+﻿生成启动时间为 2014/4/16 15:06:53。
+     1>项目“D:\code\3sweep\server\server\server.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在对“Release\server.unsuccessfulbuild”执行 Touch 任务。
        ClCompile:
          所有输出均为最新。
-         所有输出均为最新。
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code\3sweep\server\server\Release\server.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\server.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\code\3sweep\server\server\Release\server.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\code\3sweep\server\server\Release\server.lib" /MACHINE:X86 Release\server.obj
-         Release\stdafx.obj ws2_32.lib 
-         正在生成代码
-         已完成代码的生成
-         server.vcxproj -> D:\code\3sweep\server\server\Release\server.exe
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\code\3sweep\server\server\Release\server.exe;#1" /manifest Release\server.exe.intermediate.manifest
-       FinalizeBuildStatus:
-         正在删除文件“Release\server.unsuccessfulbuild”。
-         正在对“Release\server.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“D:\code\3sweep\server\server\server\server.vcxproj”(build 个目标)的操作。
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\server.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Control.cpp CurveExtraction\CmCurveEx.cpp CurveExtraction\CurveExtractionDemo.cpp CurveExtraction\CurveExtractionstdafx.cpp server.cpp Transform\Boundary.cpp Transform\Compute3D.cpp Transform\CyliEdgeSample.cpp Transform\Obj.cpp
+         Control.cpp
+     1>d:\code\3sweep\server\server\Control.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\code\3sweep\server\server\Control.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\code\3sweep\server\server\Control.h(54): error C2061: 语法错误: 标识符“Instruct”
+     1>d:\code\3sweep\server\server\Control.h(55): error C2061: 语法错误: 标识符“Status”
+     1>d:\code\3sweep\server\server\Control.h(57): error C2061: 语法错误: 标识符“BottomShape”
+     1>d:\code\3sweep\server\server\Control.h(62): error C2146: 语法错误: 缺少“;”(在标识符“status”的前面)
+     1>d:\code\3sweep\server\server\Control.h(62): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(62): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(63): error C2146: 语法错误: 缺少“;”(在标识符“instruct”的前面)
+     1>d:\code\3sweep\server\server\Control.h(63): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(63): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(64): error C2146: 语法错误: 缺少“;”(在标识符“bottomShape”的前面)
+     1>d:\code\3sweep\server\server\Control.h(64): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(64): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(71): error C2059: 语法错误:“=”
+     1>d:\code\3sweep\server\server\Control.h(71): error C2334: “{”的前面有意外标记；跳过明显的函数体
+     1>d:\code\3sweep\server\server\Control.h(72): error C2059: 语法错误:“=”
+     1>d:\code\3sweep\server\server\Control.h(72): error C2334: “{”的前面有意外标记；跳过明显的函数体
+     1>d:\code\3sweep\server\server\Control.h(73): error C2059: 语法错误:“=”
+     1>d:\code\3sweep\server\server\Control.h(73): error C2334: “{”的前面有意外标记；跳过明显的函数体
+     1>Control.cpp(4): error C2146: 语法错误: 缺少“;”(在标识符“EdgeSample”的前面)
+     1>d:\code\3sweep\server\server\Control.h(21): error C2065: “instruct”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(21): error C2050: switch 表达式不是整型
+     1>d:\code\3sweep\server\server\Control.h(22): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(23): error C2660: “Control::setImage”: 函数不接受 1 个参数
+     1>d:\code\3sweep\server\server\Control.h(25): error C2065: “draw”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(25): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(27): error C2440: “=”: 无法从“Vector2D *”转换为“Vector2D [3]”
+                 没有转换为数组类型，但有转换为数组的引用或指针
+     1>d:\code\3sweep\server\server\Control.h(34): error C2065: “drag”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(34): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(35): error C2040: “v”:“Vector2D”与“Vector2D [3]”的间接寻址级别不同
+     1>d:\code\3sweep\server\server\Control.h(38): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(40): error C2361: “default”标签跳过“v”的初始化操作
+                 d:\code\3sweep\server\server\Control.h(35) : 参见“v”的声明
+     1>d:\code\3sweep\server\server\Control.h(40): error C2361: “default”标签跳过“p”的初始化操作
+                 d:\code\3sweep\server\server\Control.h(28) : 参见“p”的声明
+     1>d:\code\3sweep\server\server\Control.h(40): error C2361: “default”标签跳过“v”的初始化操作
+                 d:\code\3sweep\server\server\Control.h(26) : 参见“v”的声明
+     1>d:\code\3sweep\server\server\Control.h(42): warning C4065: switch 语句包含“default”但是未包含“case”标签
+     1>d:\code\3sweep\server\server\Control.h(51): error C2660: “Boundary::init”: 函数不接受 0 个参数
+     1>d:\code\3sweep\server\server\Control.h(54): error C2065: “instruct”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(54): error C2065: “i”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(55): error C2065: “status”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(55): error C2065: “s”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(57): error C2065: “bottomShape”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(57): error C2065: “b”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(59): error C2440: “return”: 无法从“Obj **”转换为“Obj *”
+                 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
+     1>d:\code\3sweep\server\server\Control.h(60): error C2228: “.insertSample”的左边必须有类/结构/联合
+                 类型是“Obj *”
+                 是否改用“->”?
+     1>d:\code\3sweep\server\server\Control.h(60): error C2039: “getSample”: 不是“EdgeSample”的成员
+                 d:\code\3sweep\server\server\Transform/EdgeSample.h(8) : 参见“EdgeSample”的声明
+     1>Control.cpp(5): error C2039: “clone”: 不是“EdgeSample”的成员
+                 d:\code\3sweep\server\server\Transform/EdgeSample.h(8) : 参见“EdgeSample”的声明
+     1>Control.cpp(6): error C2065: “status”: 未声明的标识符
+     1>Control.cpp(6): error C2065: “straight”: 未声明的标识符
+     1>Control.cpp(8): error C2065: “oldMousePosition”: 未声明的标识符
+     1>Control.cpp(10): error C2228: “.endpoint”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(11): error C2228: “.endpoint”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(13): error C2228: “.samples”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(13): error C2228: “.clear”的左边必须有类/结构/联合
+     1>Control.cpp(14): error C2228: “.sample”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(16): error C2065: “status”: 未声明的标识符
+     1>Control.cpp(16): error C2065: “bend”: 未声明的标识符
+     1>Control.cpp(18): error C2065: “oldMousePosition”: 未声明的标识符
+     1>Control.cpp(19): error C2039: “normalize”: 不是“V2”的成员
+                 d:\code\3sweep\server\server\Basic/Basic.h(29) : 参见“V2”的声明
+     1>Control.cpp(20): error C2228: “.setNormal”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(25): error C2678: 二进制“-”: 没有找到接受“std::vector<_Ty>”类型的左操作数的运算符(或没有可接受的转换)
+                 with
+                 [
+                     _Ty=Vector2D
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/operations.hpp(2017): 可能是“cv::Range cv::operator -(const cv::Range &,int)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/operations.hpp(2841): 或       “ptrdiff_t cv::operator -(const cv::FileNodeIterator &,const cv::FileNodeIterator &)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1224): 或       “cv::MatExpr cv::operator -(const cv::Mat &,const cv::Mat &)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1225): 或       “cv::MatExpr cv::operator -(const cv::Mat &,const cv::Scalar &)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1226): 或       “cv::MatExpr cv::operator -(const cv::Scalar &,const cv::Mat &)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1227): 或       “cv::MatExpr cv::operator -(const cv::MatExpr &,const cv::Mat &)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1228): 或       “cv::MatExpr cv::operator -(const cv::Mat &,const cv::MatExpr &)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1229): 或       “cv::MatExpr cv::operator -(const cv::MatExpr &,const cv::Scalar &)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1230): 或       “cv::MatExpr cv::operator -(const cv::Scalar &,const cv::MatExpr &)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1231): 或       “cv::MatExpr cv::operator -(const cv::MatExpr &,const cv::MatExpr &)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1950): 或       “ptrdiff_t cv::operator -(const cv::MatConstIterator &,const cv::MatConstIterator &)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1958): 或       “cv::MatConstIterator cv::operator -(const cv::MatConstIterator &,ptrdiff_t)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1233): 或       “cv::MatExpr cv::operator -(const cv::Mat &)”
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\opencv2/core/mat.hpp(1234): 或       “cv::MatExpr cv::operator -(const cv::MatExpr &)”
+                 尝试匹配参数列表“(std::vector<_Ty>, Vector2D)”时
+                 with
+                 [
+                     _Ty=Vector2D
+                 ]
+     1>Control.cpp(31): error C2228: “.setCenter”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(31): error C2228: “.getCenter”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(33): error C2228: “.getCenter”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(34): error C2228: “.getCenter”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(35): error C2228: “.setEndpoint”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(35): error C2228: “.boundary”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(35): error C2227: “->intersection”的左边必须指向类/结构/联合/泛型类型
+     1>Control.cpp(38): error C2228: “.sample”的左边必须有类/结构/联合
+                 类型是“EdgeSample *”
+                 是否改用“->”?
+     1>Control.cpp(45): error C2440: “=”: 无法从“EdgeSample **”转换为“EdgeSample *”
+                 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
+     1>Control.cpp(46): error C2065: “oldMousePosition”: 未声明的标识符
+     1>Control.cpp(51): error C2065: “bottomShape”: 未声明的标识符
+     1>Control.cpp(51): error C2050: switch 表达式不是整型
+     1>Control.cpp(52): error C2051: case 表达式不是常量
+     1>Control.cpp(55): error C2065: “square”: 未声明的标识符
+     1>Control.cpp(55): error C2051: case 表达式不是常量
+     1>Control.cpp(58): warning C4065: switch 语句包含“default”但是未包含“case”标签
+         CmCurveEx.cpp
+     1>CurveExtraction\CmCurveEx.cpp(1): warning C4627: “#include "CmCurveEx.h"”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>CurveExtraction\CmCurveEx.cpp(2): warning C4627: “#include "CurveExtractionStdafx.h"”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>CurveExtraction\CmCurveEx.cpp(5): warning C4627: “#include <fstream>”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>CurveExtraction\CmCurveEx.cpp(601): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "StdAfx.h"”?
+         CurveExtractionDemo.cpp
+     1>d:\code\3sweep\server\server\Control.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\code\3sweep\server\server\Control.h(54): error C2061: 语法错误: 标识符“Instruct”
+     1>d:\code\3sweep\server\server\Control.h(55): error C2061: 语法错误: 标识符“Status”
+     1>d:\code\3sweep\server\server\Control.h(57): error C2061: 语法错误: 标识符“BottomShape”
+     1>d:\code\3sweep\server\server\Control.h(62): error C2146: 语法错误: 缺少“;”(在标识符“status”的前面)
+     1>d:\code\3sweep\server\server\Control.h(62): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(62): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(63): error C2146: 语法错误: 缺少“;”(在标识符“instruct”的前面)
+     1>d:\code\3sweep\server\server\Control.h(63): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(63): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(64): error C2146: 语法错误: 缺少“;”(在标识符“bottomShape”的前面)
+     1>d:\code\3sweep\server\server\Control.h(64): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(64): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(71): error C2059: 语法错误:“=”
+     1>d:\code\3sweep\server\server\Control.h(71): error C2334: “{”的前面有意外标记；跳过明显的函数体
+     1>d:\code\3sweep\server\server\Control.h(72): error C2059: 语法错误:“=”
+     1>d:\code\3sweep\server\server\Control.h(72): error C2334: “{”的前面有意外标记；跳过明显的函数体
+     1>d:\code\3sweep\server\server\Control.h(73): error C2059: 语法错误:“=”
+     1>d:\code\3sweep\server\server\Control.h(73): error C2334: “{”的前面有意外标记；跳过明显的函数体
+     1>d:\code\3sweep\server\server\curveextraction\CmCurveEx.h(25): error C2143: 语法错误 : 缺少“;”(在“<class-head>”的前面)
+     1>d:\code\3sweep\server\server\Control.h(21): error C2065: “instruct”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(21): error C2050: switch 表达式不是整型
+     1>d:\code\3sweep\server\server\Control.h(22): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(23): error C2660: “Control::setImage”: 函数不接受 1 个参数
+     1>d:\code\3sweep\server\server\Control.h(25): error C2065: “draw”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(25): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(27): error C2440: “=”: 无法从“Vector2D *”转换为“Vector2D [3]”
+                 没有转换为数组类型，但有转换为数组的引用或指针
+     1>d:\code\3sweep\server\server\Control.h(34): error C2065: “drag”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(34): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(35): error C2040: “v”:“Vector2D”与“Vector2D [3]”的间接寻址级别不同
+     1>d:\code\3sweep\server\server\Control.h(38): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(40): error C2361: “default”标签跳过“v”的初始化操作
+                 d:\code\3sweep\server\server\Control.h(35) : 参见“v”的声明
+     1>d:\code\3sweep\server\server\Control.h(40): error C2361: “default”标签跳过“p”的初始化操作
+                 d:\code\3sweep\server\server\Control.h(28) : 参见“p”的声明
+     1>d:\code\3sweep\server\server\Control.h(40): error C2361: “default”标签跳过“v”的初始化操作
+                 d:\code\3sweep\server\server\Control.h(26) : 参见“v”的声明
+     1>d:\code\3sweep\server\server\Control.h(42): warning C4065: switch 语句包含“default”但是未包含“case”标签
+     1>d:\code\3sweep\server\server\Control.h(51): error C2660: “Boundary::init”: 函数不接受 0 个参数
+     1>d:\code\3sweep\server\server\Control.h(54): error C2065: “instruct”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(54): error C2065: “i”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(55): error C2065: “status”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(55): error C2065: “s”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(57): error C2065: “bottomShape”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(57): error C2065: “b”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(59): error C2440: “return”: 无法从“Obj **”转换为“Obj *”
+                 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
+     1>d:\code\3sweep\server\server\Control.h(60): error C2228: “.insertSample”的左边必须有类/结构/联合
+                 类型是“Obj *”
+                 是否改用“->”?
+     1>d:\code\3sweep\server\server\Control.h(60): error C2039: “getSample”: 不是“EdgeSample”的成员
+                 d:\code\3sweep\server\server\Transform/EdgeSample.h(8) : 参见“EdgeSample”的声明
+     1>CurveExtraction\CurveExtractionDemo.cpp(23): error C2039: “Demo”: 不是“CmCurveEx”的成员
+                 d:\code\3sweep\server\server\curveextraction\CmCurveEx.h(25) : 参见“CmCurveEx”的声明
+     1>CurveExtraction\CurveExtractionDemo.cpp(23): error C3861: “Demo”: 找不到标识符
+         CurveExtractionstdafx.cpp
+     1>CurveExtraction\CurveExtractionstdafx.cpp(5): warning C4627: “#include "CurveExtractionStdafx.h"”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>CurveExtraction\CurveExtractionstdafx.cpp(58): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "StdAfx.h"”?
+         server.cpp
+     1>d:\code\3sweep\server\server\Control.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\code\3sweep\server\server\Control.h(54): error C2061: 语法错误: 标识符“Instruct”
+     1>d:\code\3sweep\server\server\Control.h(55): error C2061: 语法错误: 标识符“Status”
+     1>d:\code\3sweep\server\server\Control.h(57): error C2061: 语法错误: 标识符“BottomShape”
+     1>d:\code\3sweep\server\server\Control.h(62): error C2146: 语法错误: 缺少“;”(在标识符“status”的前面)
+     1>d:\code\3sweep\server\server\Control.h(62): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(62): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(63): error C2146: 语法错误: 缺少“;”(在标识符“instruct”的前面)
+     1>d:\code\3sweep\server\server\Control.h(63): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(63): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(64): error C2146: 语法错误: 缺少“;”(在标识符“bottomShape”的前面)
+     1>d:\code\3sweep\server\server\Control.h(64): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(64): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\code\3sweep\server\server\Control.h(71): error C2059: 语法错误:“=”
+     1>d:\code\3sweep\server\server\Control.h(71): error C2334: “{”的前面有意外标记；跳过明显的函数体
+     1>d:\code\3sweep\server\server\Control.h(72): error C2059: 语法错误:“=”
+     1>d:\code\3sweep\server\server\Control.h(72): error C2334: “{”的前面有意外标记；跳过明显的函数体
+     1>d:\code\3sweep\server\server\Control.h(73): error C2059: 语法错误:“=”
+     1>d:\code\3sweep\server\server\Control.h(73): error C2334: “{”的前面有意外标记；跳过明显的函数体
+     1>C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\excpt.h(29): error C2144: 语法错误:“int”的前面应有“;”
+     1>d:\code\3sweep\server\server\Control.h(21): error C2065: “instruct”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(21): error C2050: switch 表达式不是整型
+     1>d:\code\3sweep\server\server\Control.h(22): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(23): error C2660: “Control::setImage”: 函数不接受 1 个参数
+     1>d:\code\3sweep\server\server\Control.h(25): error C2065: “draw”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(25): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(27): error C2440: “=”: 无法从“Vector2D *”转换为“Vector2D [3]”
+                 没有转换为数组类型，但有转换为数组的引用或指针
+     1>d:\code\3sweep\server\server\Control.h(34): error C2065: “drag”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(34): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(35): error C2040: “v”:“Vector2D”与“Vector2D [3]”的间接寻址级别不同
+     1>d:\code\3sweep\server\server\Control.h(38): error C2051: case 表达式不是常量
+     1>d:\code\3sweep\server\server\Control.h(40): error C2361: “default”标签跳过“v”的初始化操作
+                 d:\code\3sweep\server\server\Control.h(35) : 参见“v”的声明
+     1>d:\code\3sweep\server\server\Control.h(40): error C2361: “default”标签跳过“p”的初始化操作
+                 d:\code\3sweep\server\server\Control.h(28) : 参见“p”的声明
+     1>d:\code\3sweep\server\server\Control.h(40): error C2361: “default”标签跳过“v”的初始化操作
+                 d:\code\3sweep\server\server\Control.h(26) : 参见“v”的声明
+     1>d:\code\3sweep\server\server\Control.h(42): warning C4065: switch 语句包含“default”但是未包含“case”标签
+     1>d:\code\3sweep\server\server\Control.h(51): error C2660: “Boundary::init”: 函数不接受 0 个参数
+     1>d:\code\3sweep\server\server\Control.h(54): error C2065: “instruct”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(54): error C2065: “i”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(55): error C2065: “status”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(55): error C2065: “s”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(57): error C2065: “bottomShape”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(57): error C2065: “b”: 未声明的标识符
+     1>d:\code\3sweep\server\server\Control.h(59): error C2440: “return”: 无法从“Obj **”转换为“Obj *”
+                 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
+     1>d:\code\3sweep\server\server\Control.h(60): error C2228: “.insertSample”的左边必须有类/结构/联合
+                 类型是“Obj *”
+                 是否改用“->”?
+     1>d:\code\3sweep\server\server\Control.h(60): error C2039: “getSample”: 不是“EdgeSample”的成员
+                 d:\code\3sweep\server\server\Transform/EdgeSample.h(8) : 参见“EdgeSample”的声明
+         Boundary.cpp
+     1>Transform\Boundary.cpp(1): warning C4627: “#include "library.h"”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>Transform\Boundary.cpp(2): warning C4627: “#include "Boundary.h"”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>Transform\Boundary.cpp(3): warning C4627: “#include "CurveExtraction\CmCurveEx.h"”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>Transform\Boundary.cpp(4): warning C4627: “#include <cassert>”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>Transform\Boundary.cpp(5): warning C4627: “#include <fstream>”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>Transform\Boundary.cpp(6): warning C4627: “#include <ctime>”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>Transform\Boundary.cpp(381): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "StdAfx.h"”?
+         Compute3D.cpp
+     1>Transform\Compute3D.cpp(1): warning C4627: “#include "Compute3D.h"”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>Transform\Compute3D.cpp(18): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "StdAfx.h"”?
+         CyliEdgeSample.cpp
+     1>Transform\CyliEdgeSample.cpp(1): warning C4627: “#include "../stdafx.h"”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>Transform\CyliEdgeSample.cpp(2): warning C4627: “#include "CyliEdgeSample.h"”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>Transform\CyliEdgeSample.cpp(65): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "StdAfx.h"”?
+         Obj.cpp
+     1>Transform\Obj.cpp(1): warning C4627: “#include "Obj.h"”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>Transform\Obj.cpp(31): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "StdAfx.h"”?
+     1>已完成生成项目“D:\code\3sweep\server\server\server.vcxproj”(build 个目标)的操作 - 失败。
 
-生成成功。
+生成失败。
 
-已用时间 00:00:00.48
+已用时间 00:00:02.03

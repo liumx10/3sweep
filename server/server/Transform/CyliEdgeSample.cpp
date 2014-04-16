@@ -1,3 +1,4 @@
+#include "../stdafx.h"
 #include "CyliEdgeSample.h"
 
 void CyliEdgeSample::init(std::vector<Vector2D> v){
@@ -51,7 +52,7 @@ Vector2D CyliEdgeSample::getEllipsePoint(int i){
 }
 
 
-CyliEdgeSample CyliEdgeSample::clone(){
+CyliEdgeSample* CyliEdgeSample::clone(){
 	CyliEdgeSample ces;
 	ces.setCenter(center);
 	ces.setNormal(normal);
@@ -59,5 +60,5 @@ CyliEdgeSample CyliEdgeSample::clone(){
 	ces.setB(b);
 	ces.setEndpoint(endpoint);
 
-	return ces;
+	return &ces;
 }

@@ -22,8 +22,7 @@ void Obj::insertSample(std::vector<Vector3D> v){
 	}
 }
 
-void Obj::getTriangle(Vector3D& v1, Vector3D& v2, Vector3D& v3){
-	Triangle t;
+void setTriangle(Triangle &t, Vector3D& v1, Vector3D& v2, Vector3D&v3){
 	t[0] = v1;
 	t[1] = v2;
 	t[2] = v3;

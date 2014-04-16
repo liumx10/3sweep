@@ -1,5 +1,3 @@
-// 圆柱形目标采样
-
 #ifndef CYLIEDGESAMPLE_H
 #define CYLIEDGESAMPLE_H
 
@@ -10,7 +8,7 @@ class CyliEdgeSample: public EdgeSample{
 public:
 	CyliEdgeSample(){}
 	void init(std::vector<Vector3D> v);
-	CyliEdgeSample clone();
+	CyliEdgeSample* clone();
 	void sample();
 
 	double getA() { return a; }

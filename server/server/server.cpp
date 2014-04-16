@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-
+#include "library.h"
 #include <iostream>
 #include <WinSock2.h>
 
@@ -17,13 +17,15 @@ DWORD WINAPI ClientThread(LPVOID IpParameter){
 	int ret = 0;
 	char buff[BUFF_SIZE];
 
+	Control control;
 	while (true){
 		memset(buff, 0x00, BUFF_SIZE);
 		ret = recv(clientSocket, buff, BUFF_SIZE, 0);
-		if ((ret == 0) || (ret = SOCKET_ERROR)){
+		if ((ret == 0) || (ret == SOCKET_ERROR)){
 			cout << "client quit" << endl;
 			break;
 		}
+		control.control(buff);
 		cout << "Buff: " << buff << endl;
 	}
 	return 0;

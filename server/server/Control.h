@@ -1,5 +1,5 @@
-#ifndef CONTROL_H
-#define	CONTROL_H
+#ifndef  CONTROL_H
+#define	 CONTROL_H
 
 #include "library.h"
 
@@ -42,12 +42,12 @@ public:
 		}
 	}
 
-	EdgeSample getNewEdge(Vector2D &mousePosition);
+	EdgeSample* getNewEdge(Vector2D &mousePosition);
 
 	void setImage() {}
 	void buildObj(Vector2D &mousePosition);
 	void initBoundary(){
-		boundary = new Boundary;
+		boundary = new Boundary();
 		boundary->init();
 	}
 
