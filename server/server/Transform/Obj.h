@@ -1,10 +1,8 @@
 #ifndef OBJ_H
 #define OBJ_H
 
-#include <GL/gl.h>
-#include <GL/glut.h>
-
-#include "../library.h"
+#include "../Basic/Basic.h"
+#include <vector>
 
 class Obj{
 public:

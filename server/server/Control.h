@@ -1,54 +1,40 @@
 #ifndef  CONTROL_H
 #define	 CONTROL_H
 
-#include "library.h"
+#include "Basic\Basic.h"
+#include "Transform\Boundary.h"
+#include "Transform\Compute3D.h"
+#include "Transform\CyliEdgeSample.h"
+#include "Transform\Obj.h"
+
+enum Instruct  {SETIMAGE, DRAW, DRAG, ROTATE};
+enum Status {straight, bend};
+enum BottomShape  { CIRCLE, SQUARE};
 
 class Control{
 public:
 	Control(){
 		obj = new Obj;
 		topEdge = NULL;
-		compute3D = new Compute3D;		
+		translator = new Compute3D;		
 	}
 	~Control(){
-		delete compute3D;
+		delete translator;
 		delete obj;
 		delete topEdge;
 		delete boundary;
 	}
 
 	void control(char* buffer){
-		switch (instruct){
-			case setImage:
-				setImage(buffer);
-				break;
-			case draw:
-				Vector2D  v[3];
-				v = (Vector2D*)buffer;
-				std::vector<Vector2D> p;
-				for (int i =0; i<3; i++){
-					p[i] = v[i];
-				} 
-				setFirstEdge(p);
-				break;
-			case drag:
-				Vector2D v = *((Vector2D*)buffer);
-				buildObj(v);
-				break;
-			case rotate:
-				break;
-			default:
-				break;
-		}
 	}
 
 	EdgeSample* getNewEdge(Vector2D &mousePosition);
 
-	void setImage() {}
+	void setImage(char* filename) {}
 	void buildObj(Vector2D &mousePosition);
-	void initBoundary(){
-		boundary = new Boundary();
-		boundary->init();
+	void initBoundary(char* filename){
+		boundary = new Boundary;
+		boundary->init(filename);
 	}
 
 	void setInstruct(Instruct i) { instruct = i; }
@@ -56,21 +42,16 @@ public:
 	void setFirstEdge(std::vector<Vector2D> &v);
 	void setBottomShape(BottomShape b) { bottomShape = b; }
 
-	Obj* getObj() { return &obj; }
-	void objAddSample() { obj.insertSample(compute3D->compute3D(topEdge->getSample())); }
+	Obj* getObj() { return obj; }
 private:
 	Status status;
 	Instruct instruct;
 	BottomShape bottomShape;
 	Obj* obj;
-	Vector2D oldMoustPosition;
 	EdgeSample* topEdge;
-	Compute3D* compute3D;
+	Compute3D* translator;
+	Vector2D oldMousePosition;
 	Boundary* boundary;
-
-	enum Instruct = {setImage, draw, drag, rotate};
-	enum Status = {straight, bend};
-	enum BottomShape = { circle, square};
-}；
+};
 
 #endif

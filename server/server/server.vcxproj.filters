@@ -36,16 +36,10 @@
     <ClInclude Include="Control.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="library.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Basic\Basic.h">
       <Filter>Basic</Filter>
     </ClInclude>
     <ClInclude Include="Transform\Boundary.h">
-      <Filter>Transform</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform\Compute3D.h">
       <Filter>Transform</Filter>
     </ClInclude>
     <ClInclude Include="Transform\CyliEdgeSample.h">
@@ -54,14 +48,17 @@
     <ClInclude Include="Transform\EdgeSample.h">
       <Filter>Transform</Filter>
     </ClInclude>
-    <ClInclude Include="Transform\Obj.h">
-      <Filter>Transform</Filter>
-    </ClInclude>
     <ClInclude Include="CurveExtraction\CmCurveEx.h">
       <Filter>CurveExtraction</Filter>
     </ClInclude>
     <ClInclude Include="CurveExtraction\CurveExtractionStdafx.h">
       <Filter>CurveExtraction</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform\Compute3D.h">
+      <Filter>Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform\Obj.h">
+      <Filter>Transform</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -77,23 +74,26 @@
     <ClCompile Include="Transform\Boundary.cpp">
       <Filter>Transform</Filter>
     </ClCompile>
-    <ClCompile Include="Transform\Compute3D.cpp">
-      <Filter>Transform</Filter>
-    </ClCompile>
     <ClCompile Include="Transform\CyliEdgeSample.cpp">
-      <Filter>Transform</Filter>
-    </ClCompile>
-    <ClCompile Include="Transform\Obj.cpp">
       <Filter>Transform</Filter>
     </ClCompile>
     <ClCompile Include="CurveExtraction\CmCurveEx.cpp">
       <Filter>CurveExtraction</Filter>
     </ClCompile>
-    <ClCompile Include="CurveExtraction\CurveExtractionDemo.cpp">
-      <Filter>CurveExtraction</Filter>
-    </ClCompile>
     <ClCompile Include="CurveExtraction\CurveExtractionstdafx.cpp">
       <Filter>CurveExtraction</Filter>
+    </ClCompile>
+    <ClCompile Include="Basic\Basic.cpp">
+      <Filter>Basic</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform\EdgeSample.cpp">
+      <Filter>Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform\Compute3D.cpp">
+      <Filter>Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform\Obj.cpp">
+      <Filter>Transform</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

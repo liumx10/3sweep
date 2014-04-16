@@ -2,6 +2,9 @@
 #define BASIC_H
 
 #include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <utility>
 
 struct V3{
 	double x;
@@ -44,49 +47,17 @@ struct V2
 	double value() {return sqrt(x*x+y*y); }
 	double distanceTo(const V2 &p){ return sqrt(pow(x-p.x, 2)+pow(y-p.y, 2)); }
 
-	void show(){printf("(%.2lf, %.2lf)", x, y);}
+	void show(){ printf("(%.2lf, %.2lf)", x, y);}
+	void normalize() { double r = value(); x /= r; y /= r; }
 	V2 getNormal() { return V2(y, -x); }
 };
 
 typedef V3 Vector3D;
 typedef V2 Vector2D;
 
-double getRotateAngle(double x1, double y1, double x2, double y2)
-{
-	const double epsilon = 1.0e-6;
-	const double nyPI = acos(-1.0);
-	double dist, dot, degree, angle;
+double getRotateAngle(double x1, double y1, double x2, double y2);
 
-	// normalize
-	dist = sqrt( x1 * x1 + y1 * y1 );
-	x1 /= dist;
-	y1 /= dist;
-	dist = sqrt( x2 * x2 + y2 * y2 );
-	x2 /= dist;
-	y2 /= dist;
-	// dot product
-	dot = x1 * x2 + y1 * y2;
-	if ( fabs(dot-1.0) <= epsilon ) 
-	angle = 0.0;
-	else if ( fabs(dot+1.0) <= epsilon ) 
-	angle = nyPI;
-	else {
-	double cross;
-
-	angle = acos(dot);
-	//cross product
-	cross = x1 * y2 - x2 * y1;
-	// vector p2 is clockwise from vector p1 
-	// with respect to the origin (0.0)
-	if (cross < 0 ) { 
-	angle = 2 * nyPI - angle;
-	}    
-	}
-	degree = angle *  180.0 / nyPI;
-	return degree;
-}
-
-typedef std::pair<Vector2D, Vector2D> Hline;
+typedef std::pair<V2, V2> Hline;
 
 struct HVector
 {
@@ -97,6 +68,16 @@ struct HVector
 };
 typedef HVector Hvector;
 
-typedef V3 Triangle[3];
+struct Triangle{
+	V3 v[3];
+	Triangle(){
+		v[0] = v[1] = v[2] = V3(0,0,0);
+	}
+	Triangle(V3 &v1, V3 &v2, V3& v3){
+		v[0] = v1;
+		v[1] = v2;
+		v[2] = v3;
+	}
+};
 
 #endif;

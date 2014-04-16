@@ -19,7 +19,7 @@
 ************************************************************************/
 
 #include "CurveExtractionStdafx.h"
-#include "../library.h"
+#include "../Basic/Basic.h"
 
 class CmCurveEx
 {

@@ -1,7 +1,7 @@
 #ifndef BOUNDARY_H
 #define BOUNDARY_H
 
-#include "../library.h"
+#include "../CurveExtraction/CmCurveEx.h"
 #include "../Basic/Basic.h"
 
 /***********************************************************************

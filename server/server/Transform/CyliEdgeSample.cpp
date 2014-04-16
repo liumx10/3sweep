@@ -2,8 +2,9 @@
 #include "CyliEdgeSample.h"
 
 void CyliEdgeSample::init(std::vector<Vector2D> v){
-	endpoint = bounday->intersection(v);
-	center = (endpoint[0] + endpoint[1])/2;
+	endpoint = boundary->calcIntersection(v);
+	center = endpoint[0] + endpoint[1];
+	center /= 2;
 	a = endpoint[0].distanceTo(endpoint[1])/2;
 
 	normal = endpoint[1] - endpoint[0];
@@ -13,7 +14,7 @@ void CyliEdgeSample::init(std::vector<Vector2D> v){
 	std::vector<Vector2D> v2;
 	v2.push_back(v[1]);
 	v2.push_back(v[2]);
-	v2 = bounday->intersection(v2);
+	v2 = boundary->calcIntersection(v2);
 	b = v2[1].distanceTo(center)/2;
 
 	if (normal*(v2[1] - v2[0]) > 0){
@@ -30,7 +31,7 @@ void CyliEdgeSample::sample(){
 	for (int i=0; i<sampleNum; i++){
 		Vector2D p = getEllipsePoint(i);
 		// someting may be done to make it faster here
-		angle = atan(normal.x/normal.y);
+		double angle = atan(normal.x/normal.y);
 		Vector2D sample(p.x*cos(angle)-p.y*sin(angle), 
 						p.x*sin(angle)+p.y*cos(angle));
 		samples.push_back(sample+center);
@@ -52,7 +53,7 @@ Vector2D CyliEdgeSample::getEllipsePoint(int i){
 }
 
 
-CyliEdgeSample* CyliEdgeSample::clone(){
+EdgeSample* CyliEdgeSample::clone(){
 	CyliEdgeSample ces;
 	ces.setCenter(center);
 	ces.setNormal(normal);

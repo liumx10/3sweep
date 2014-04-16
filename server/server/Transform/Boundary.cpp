@@ -1,6 +1,5 @@
-#include "library.h"
+#include "../library.h"
 #include "Boundary.h"
-#include "CurveExtraction\CmCurveEx.h"
 #include <cassert>
 #include <fstream>
 #include <ctime>
@@ -56,7 +55,7 @@ vector<Vector2D> Boundary::calcIntersection(vector<Vector2D> v)
 	}
 
 	cerr << "candiate: \n";
-	for(int i=0;i<candiate.size();i++)
+	for(unsigned int i=0; i<candiate.size(); i++)
 	{
 		cerr << "(" << candiate[i].x << ',' << candiate[i].y << ")   ";
 	}
@@ -73,7 +72,7 @@ vector<Vector2D> Boundary::calcIntersection(vector<Vector2D> v)
 	p1_min1 = p1_min2 = p2_min1 = p2_min2 = 10000000.0;
 	p1_min1_id = p1_min2_id = p2_min1_id = p2_min2_id = -1;
 	Vector2D temp_p;
-	for(int i=0;i<candiate.size();i++)
+	for(unsigned int i=0;i<candiate.size();i++)
 	{
 		temp_p = candiate[i];
 		double distance2p1 = abs(temp_p.x - p1.x);
@@ -372,7 +371,7 @@ void Boundary::test_getSegmentIntersection()
 
 	cerr << "-------------------------\n";
 	cerr << "result: \n";
-	for(int i=0;i<res.size();i++)
+	for(unsigned int i=0;i<res.size();i++)
 	{
 		cerr << "(" << res[i].x << ',' << res[i].y << ")\n";
 	}

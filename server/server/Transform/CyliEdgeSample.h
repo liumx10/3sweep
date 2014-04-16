@@ -2,13 +2,14 @@
 #define CYLIEDGESAMPLE_H
 
 #include "EdgeSample.h"
-#include "../library.h"
+#include "../Basic/Basic.h"
+#include "Boundary.h"
 
 class CyliEdgeSample: public EdgeSample{
 public:
 	CyliEdgeSample(){}
-	void init(std::vector<Vector3D> v);
-	CyliEdgeSample* clone();
+	void init(std::vector<Vector2D> v);
+	EdgeSample* clone();
 	void sample();
 
 	double getA() { return a; }
@@ -17,7 +18,6 @@ public:
 	void setA(double A) { a = A; }
 	void setB(double B) { b = B; }
 
-	void clear(){ samples.clear(); }
 private:
 
 	double a;  // two arguments for a ellipse 

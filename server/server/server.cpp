@@ -1,10 +1,9 @@
 // server.cpp : 定义控制台应用程序的入口点。
 //
-
 #include "stdafx.h"
+#include <WinSock2.h>
 #include "library.h"
 #include <iostream>
-#include <WinSock2.h>
 
 using namespace std;
 
@@ -17,7 +16,7 @@ DWORD WINAPI ClientThread(LPVOID IpParameter){
 	int ret = 0;
 	char buff[BUFF_SIZE];
 
-	Control control;
+	//Control control;
 	while (true){
 		memset(buff, 0x00, BUFF_SIZE);
 		ret = recv(clientSocket, buff, BUFF_SIZE, 0);
@@ -25,7 +24,7 @@ DWORD WINAPI ClientThread(LPVOID IpParameter){
 			cout << "client quit" << endl;
 			break;
 		}
-		control.control(buff);
+		//control.control(buff);
 		cout << "Buff: " << buff << endl;
 	}
 	return 0;

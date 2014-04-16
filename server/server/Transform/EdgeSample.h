@@ -8,12 +8,12 @@
 class EdgeSample{
 public:
 	EdgeSample(){
-
 	}
-	void init(std::vector<Vector2D>);   // initlize by user's input. only the first will use this function
-	void sample();  // calculate the sample points' coordinates after adjusting normal and endpoint
-	
-	std::vector<Vector2D> getSamples();  // return the sample points' coordinates in 2D
+	virtual void init(std::vector<Vector2D>) = 0;   // initlize by user's input. only the first will use this function
+	virtual void sample() = 0;  // calculate the sample points' coordinates after adjusting normal and endpoint
+	virtual EdgeSample* clone() = 0;
+
+	std::vector<Vector2D> getSamples() { return samples; }
 	Vector2D getNormal() {  return normal; }
 	std::vector<Vector2D> getEndpoint() { return endpoint; }
 	Vector2D getCenter() { return center; }
@@ -22,20 +22,18 @@ public:
 	void setNormal(Vector2D v) { normal = v; }
 	void setEndpoint(std::vector<Vector2D> v) { endpoint[0] = v[0]; endpoint[1] = v[1]; }
 	void setBoundary(Boundary* b) { boundary = b; }
+	void clear(){ samples.clear(); }
 
-	
 	static void setSampleNum(int i) { sampleNum = i; }
 	static int getSampleNum() { return sampleNum; }
-
-protected:
-	Boundary *boundary;
-	static int sampleNum;
-
+	
 	Vector2D center;    
 	Vector2D normal;   
-	std::vector<Vector2D> endpoint;
 	std::vector<Vector2D> samples;  
+	std::vector<Vector2D> endpoint;
+	Boundary *boundary;
+
+	static int sampleNum;
 };
 
-int EdgeSample::sampleNum = 24;
 #endif
