@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <utility>
 
+#define PI 3.141592654
 struct V3{
 	double x;
 	double y;
@@ -40,6 +41,8 @@ struct V2
 	V2 operator + (const V2 &v) { return V2(x+v.x, y+v.y); }
 	V2 operator - (const V2 &v) { return V2(x-v.x, y-v.y); }
 	V2 operator * (double t) { return V2(x*t, y*t); }
+
+	void operator += (V2 t) { x+= t.x; y+= t.y; }
 	void operator *= (double t) { x*= t; y*= t; }
 	void operator /= (double t) { x/= t; y/= t; }
 

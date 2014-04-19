@@ -16,7 +16,7 @@ void Control::setFirstEdge(std::vector<Vector2D> &v){
 
 void Control::buildObj(Vector2D &mousePosition){
 	getNewEdge(mousePosition);	
-	obj->insertSample(translator->compute3D(topEdge->getSamples()));
+	obj->insertSample(topEdge->getSamples3D());
 }
 
 EdgeSample* Control::getNewEdge(Vector2D & mousePosition){
@@ -25,10 +25,12 @@ EdgeSample* Control::getNewEdge(Vector2D & mousePosition){
 		Vector2D direct = edgeSample->getNormal()*
 						 (edgeSample->getNormal()*(mousePosition - oldMousePosition));
 	
-		edgeSample->endpoint[0] = direct;
-		edgeSample->endpoint[1] = direct;
+		edgeSample->endpoint[0] += direct;
+		edgeSample->endpoint[1] += direct;
+		edgeSample->center += direct;
+		edgeSample->setEndpoint(edgeSample->boundary->calcIntersection(edgeSample->getEndpoint()));
 
-		edgeSample->samples.clear();
+		edgeSample->clear();
 		edgeSample->sample();
 
 	}else if(status == bend) {

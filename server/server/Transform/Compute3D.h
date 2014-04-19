@@ -5,10 +5,16 @@
 #include <vector>
 
 class Compute3D{
+	double zr;
+    double t;
+    double v;
+    double n;
+    double u;
 public:
-	void init();
-	Vector3D compute3D(Vector2D);
-	std::vector<Vector3D> compute3D(std::vector<Vector2D> v);
+	void init(double N, double F);
+	std::vector<Vector3D> calcAxes(double *, double *);
+
+	static int sampleNum;
 };
 
 #endif

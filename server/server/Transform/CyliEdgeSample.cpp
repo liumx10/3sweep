@@ -27,14 +27,30 @@ void CyliEdgeSample::sample(){
 	double t = b/a;
 	a = endpoint[0].distanceTo(endpoint[1])/2;
 	b = t*a;
-
+	/*
 	for (int i=0; i<sampleNum; i++){
 		Vector2D p = getEllipsePoint(i);
 		// someting may be done to make it faster here
 		double angle = atan(normal.x/normal.y);
 		Vector2D sample(p.x*cos(angle)-p.y*sin(angle), 
 						p.x*sin(angle)+p.y*cos(angle));
-		samples.push_back(sample+center);
+		samples2D.push_back(sample+center);
+	}*/
+	double x[4], y[4];
+	x[0] = center.x;             y[0] = center.y;
+	x[1] = endpoint[1].x;        y[1] = endpoint[1].y;  
+	x[2] = center.x + normal.x;	 y[2] = center.y + normal.y;
+	x[3] = center.x;	         y[3] = center.y - b;
+
+	std::vector<Vector3D> axes3D = compute3D->calcAxes(x, y);
+	double R = axes3D[1].distanceTo(axes3D[0])+ axes3D[3].distanceTo(axes3D[0]);
+	R /= 2;
+	for (int i=0; i<sampleNum; i++){
+		double angle = 2*PI*double(i)/sampleNum;
+		double x = (0-R)*cos(angle);
+		double z = (0-R)*sin(angle);
+		Vector3D sample(axes3D[0].x + x, axes3D[0].y, axes3D[0].z + z);
+		samples3D.push_back(sample);
 	}
 }
 

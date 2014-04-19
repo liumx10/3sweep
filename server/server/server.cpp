@@ -2,7 +2,6 @@
 //
 #include "stdafx.h"
 #include <WinSock2.h>
-#include "library.h"
 #include <iostream>
 
 using namespace std;
