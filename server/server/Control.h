@@ -8,7 +8,7 @@
 #include "Transform\Obj.h"
 
 enum Instruct  {SETIMAGE, DRAW, DRAG, ROTATE};
-enum Status {straight, bend};
+enum Status {STRAIGHT, BEND};
 enum BottomShape  { CIRCLE, SQUARE};
 
 class Control{
@@ -17,6 +17,7 @@ public:
 		obj = new Obj;
 		topEdge = NULL;
 		translator = new Compute3D;		
+		translator->init(10, 800);
 	}
 	~Control(){
 		delete translator;
@@ -34,15 +35,19 @@ public:
 	void buildObj(Vector2D &mousePosition);
 	void initBoundary(char* filename){
 		boundary = new Boundary;
-		boundary->init(filename);
+		boundary->init(string(filename));
 	}
 
 	void setInstruct(Instruct i) { instruct = i; }
-	void setStatus(Status &s) { status = s; }
+	void setStatus(Status s) { status = s; }
 	void setFirstEdge(std::vector<Vector2D> &v);
 	void setBottomShape(BottomShape b) { bottomShape = b; }
 
 	Obj* getObj() { return obj; }
+
+	void debugShow();
+
+	
 private:
 	Status status;
 	Instruct instruct;
