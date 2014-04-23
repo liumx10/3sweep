@@ -1,4 +1,5 @@
 #include "Boundary.h"
+#include "EdgeExtraction.h"
 #include <cassert>
 #include <fstream>
 #include <ctime>
@@ -7,10 +8,29 @@ using namespace std;
 
 const double ZEROTHRESHOLD = 0.000001;
 
+Boundary::Boundary()
+{}
+
+Boundary::Boundary(const string &imgName)
+{
+	init(imgName);
+}
+
 void Boundary::init(const string &imgName)
 {
+	edge.clear();
+
 	Mat client_img = imread(imgName, CV_LOAD_IMAGE_GRAYSCALE);
-	CmCurveEx::edge2vector(client_img, true, this->edge);
+	//imshow("ori", client_img);
+
+	test_img = client_img;
+
+	Mat edge_img = EdgeExtraction::extract(client_img);
+	//imshow("edge", edge_img);
+	//cv::waitKey(0);
+
+	CmCurveEx::edge2vector(edge_img, true, this->edge);
+	
 }
 
 /***********************************************************************
@@ -22,17 +42,20 @@ void Boundary::init(const string &imgName)
 ************************************************************************/
 vector<Vector2D> Boundary::calcIntersection(vector<Vector2D> v)
 {
-	assert(v.size() == 2);
-
+	assert(v.size() >= 2);
+	
 	int cir_amount = edge.size();// the amount of circles
 	Vector2D p1(v[0]), p2(v[1]);
 	Vector2D p3, p4;
 	vector<Vector2D> candiate;//candiate intersections on line(v[0], v[1])
-	//get all the intersections of each circle
+	//get all the intersections of each edge
 	for(int i=0;i<cir_amount;i++)
 	{
 		int inter_id = 0;
 		int length_edgei = edge[i].size();
+
+		//cerr << i << " : " << length_edgei << endl;
+
 		for(int j=0;j<length_edgei-1;j++)
 		{
 			p3 = edge[i][j];
@@ -41,7 +64,7 @@ vector<Vector2D> Boundary::calcIntersection(vector<Vector2D> v)
 			if(getSegmentIntersection(Hline(p1, p2), Hline(p3, p4), intersection))
 			{
 				if(candiate.size() > 0 && 
-					candiate[candiate.size()-1].x == intersection.x && candiate[candiate.size()].y == intersection.y)
+					candiate[candiate.size()-1].x == intersection.x && candiate[candiate.size()-1].y == intersection.y)
 				{
 					continue;
 				}
@@ -53,13 +76,14 @@ vector<Vector2D> Boundary::calcIntersection(vector<Vector2D> v)
 		}
 	}
 
-	cerr << "candiate: \n";
+	/*cerr << "candiate: \n";
 	for(unsigned int i=0; i<candiate.size(); i++)
 	{
 		cerr << "(" << candiate[i].x << ',' << candiate[i].y << ")   ";
 	}
-	cerr << endl;
+	cerr << endl;*/
 
+	//cerr << "size = " << candiate.size() << endl;
 	//select intersections and choose two intersections who is nearest to the v from interaction
 	double x_min = min(p1.x, p2.x);
 	double y_min = min(p1.y, p2.y);
@@ -105,12 +129,12 @@ vector<Vector2D> Boundary::calcIntersection(vector<Vector2D> v)
 	}
 
 	vector<Vector2D> result;
-	if(p1_min1 == -1 && p2_min1 == -1) //no intersection found
+	if(p1_min1_id == -1 && p2_min1_id == -1) //no intersection found
 	{
 		result.push_back(v[0]);
 		result.push_back(v[1]);
 	}
-	else if(p1_min1 == -1) //just one intersection is found which nearer p2
+	else if(p1_min1_id == -1) //just one intersection is found which nearer p2
 	{
 		if(p2_min1*2 / delta_x > 0.2) // demand that the length of adjacent profiles does not vary more than 20% 
 		{
@@ -123,11 +147,14 @@ vector<Vector2D> Boundary::calcIntersection(vector<Vector2D> v)
 			center = (v[0] + v[1]) * 0.5;
 			Vector2D another_point;
 			another_point = center * 2 - candiate[p2_min1_id];
-			result.push_back(another_point);
-			result.push_back(candiate[p2_min1_id]);
+			if(another_point.x > 0 && another_point.y > 0)
+			{
+				result.push_back(another_point);
+				result.push_back(candiate[p2_min1_id]);
+			}
 		}
 	}
-	else if(p2_min1 == -1) //just one intersection is found which nearer p1
+	else if(p2_min1_id == -1) //just one intersection is found which nearer p1
 	{
 		if(p1_min1*2 / delta_x > 0.2) // demand that the length of adjacent profiles does not vary more than 20% 
 		{
@@ -140,8 +167,11 @@ vector<Vector2D> Boundary::calcIntersection(vector<Vector2D> v)
 			center = (v[0] + v[1]) * 0.5;
 			Vector2D another_point;
 			another_point = center * 2 - candiate[p1_min1_id];
-			result.push_back(another_point);
-			result.push_back(candiate[p1_min1_id]);
+			if(another_point.x > 0 && another_point.y > 0)
+			{
+				result.push_back(another_point);
+				result.push_back(candiate[p1_min1_id]);
+			}
 		}
 	}
 	else // two intersections are found
@@ -152,17 +182,17 @@ vector<Vector2D> Boundary::calcIntersection(vector<Vector2D> v)
 			result.push_back(candiate[p1_min1_id]);
 			result.push_back(candiate[p2_min1_id]);
 		}
-		else if(abs(candiate[p1_min2_id].x - candiate[p2_min1_id].x) / delta_x > 0.8)
+		else if(p1_min2_id >= 0 && abs(candiate[p1_min2_id].x - candiate[p2_min1_id].x) / delta_x > 0.8)
 		{
 			result.push_back(candiate[p1_min2_id]);
 			result.push_back(candiate[p2_min1_id]);
 		}
-		else if(abs(candiate[p1_min1_id].x - candiate[p2_min2_id].x) / delta_x > 0.8)
+		else if(p2_min2_id >= 0 && abs(candiate[p1_min1_id].x - candiate[p2_min2_id].x) / delta_x > 0.8)
 		{
 			result.push_back(candiate[p1_min1_id]);
 			result.push_back(candiate[p2_min2_id]);
 		}
-		else if(abs(candiate[p1_min2_id].x - candiate[p2_min2_id].x) / delta_x > 0.8)
+		else if(p1_min2_id >= 0 && p2_min2_id >= 0 && abs(candiate[p1_min2_id].x - candiate[p2_min2_id].x) / delta_x > 0.8)
 		{
 			result.push_back(candiate[p1_min2_id]);
 			result.push_back(candiate[p2_min2_id]);
@@ -173,6 +203,11 @@ vector<Vector2D> Boundary::calcIntersection(vector<Vector2D> v)
 			result.push_back(v[1]);
 		}
 	}
+
+	/*cerr << "intersection result: ";
+	result[0].show();
+	result[1].show();
+	cerr << endl;*/
 
 	return result;
 }
@@ -302,12 +337,12 @@ bool Boundary::setCycleGraph(std::vector<std::vector<Vector2D> > e)
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
-void Boundary::test_getSegmentIntersection()
+void Boundary::test_getSegmentIntersection(string filename)
 {
 	clock_t start, next, finish;
 	start = clock();
 
-	string filename("data/1029141_curve.png");
+	//string filename("data/1221016.png");
 	/*int cycle_amount;
 	fin >> cycle_amount;
 	vector<pair<int, vector<Vector2D> > > edge;
@@ -361,6 +396,7 @@ void Boundary::test_getSegmentIntersection()
 	points.push_back(Vector2D(314, 233));
 	points.push_back(Vector2D(340, 349));
 
+	cerr << "interaction points: (314,233) (340,349)\n";
 	next = clock();
 	vector<Vector2D> res = calcIntersection(points);
 	finish = clock();
@@ -375,4 +411,8 @@ void Boundary::test_getSegmentIntersection()
 		cerr << "(" << res[i].x << ',' << res[i].y << ")\n";
 	}
 
+	/*for(int i=0;i<2;i++)
+	{
+		test_img.ptr<uchar>(res[i].x)[res[i].y] = 255;
+	}*/
 }

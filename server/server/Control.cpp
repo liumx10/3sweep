@@ -1,4 +1,4 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "Control.h"
 
 void Control::setFirstEdge(std::vector<Vector2D> &v){
@@ -10,8 +10,11 @@ void Control::setFirstEdge(std::vector<Vector2D> &v){
 		default:
 			break;
 	}
-	topEdge->init(v);
 	topEdge->setBoundary(boundary);
+	topEdge->compute3D = translator;
+	topEdge->init(v);
+	topEdge->sample(0);
+	obj->insertSample(topEdge->getSamples3D());
 }
 
 void Control::buildObj(Vector2D &mousePosition){
@@ -21,7 +24,7 @@ void Control::buildObj(Vector2D &mousePosition){
 
 EdgeSample* Control::getNewEdge(Vector2D & mousePosition){
 	EdgeSample* edgeSample = topEdge->clone();
-	if (status == straight){
+	if (status == STRAIGHT){
 		Vector2D direct = edgeSample->getNormal()*
 						 (edgeSample->getNormal()*(mousePosition - oldMousePosition));
 	
@@ -31,9 +34,10 @@ EdgeSample* Control::getNewEdge(Vector2D & mousePosition){
 		edgeSample->setEndpoint(edgeSample->boundary->calcIntersection(edgeSample->getEndpoint()));
 
 		edgeSample->clear();
-		edgeSample->sample();
+		
+		edgeSample->sample(1);
 
-	}else if(status == bend) {
+	}else if(status == BEND) {
 		// the way we get normal should be discussed again
 		Vector2D n = mousePosition - oldMousePosition;
 		n.normalize();
@@ -55,7 +59,7 @@ EdgeSample* Control::getNewEdge(Vector2D & mousePosition){
 		edgeSample->setEndpoint(edgeSample->boundary->calcIntersection(endpoint));
 
 		// set sample points 
-		edgeSample->sample(); 
+		edgeSample->sample(1); 
 	}
 	else{
 		std::cout << "status is wrong" << endl;
@@ -66,4 +70,10 @@ EdgeSample* Control::getNewEdge(Vector2D & mousePosition){
 	topEdge = edgeSample;
 	oldMousePosition = mousePosition;
 	return topEdge;
+}
+
+void Control::debugShow()
+{
+	topEdge->debugShow();
+	obj->debugShow();
 }

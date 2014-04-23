@@ -22,7 +22,7 @@ struct V3{
 	V3 operator * (const double k[]) { return V3(x*k[0], y*k[1], z*k[2]); }
 	double operator * (const V3 v)	{ return v.x*x+v.y*y + v.z*z;  }
 	V3 operator / (const double t)	{ return V3(x/t, y/t, z/t); }
-
+	
 	double value(){ return sqrt(x*x+y*y+z*z);}
 	double distanceTo(const V3 &p)	{ return sqrt(pow(x-p.x,2)+pow(y-p.y,2)+pow(z-p.z,2)); }
 	void normalize(){ double v = value(); x /= v; y /= v; z /= v;  }
@@ -59,6 +59,7 @@ typedef V3 Vector3D;
 typedef V2 Vector2D;
 
 double getRotateAngle(double x1, double y1, double x2, double y2);
+Vector3D cross(const Vector3D v1, const Vector3D v2); //cross production
 
 typedef std::pair<V2, V2> Hline;
 

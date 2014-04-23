@@ -1,5 +1,6 @@
-#include "../stdafx.h"
+//#include "../stdafx.h"
 #include "CyliEdgeSample.h"
+#include "InvCamera.h"
 
 void CyliEdgeSample::init(std::vector<Vector2D> v){
 	endpoint = boundary->calcIntersection(v);
@@ -14,19 +15,19 @@ void CyliEdgeSample::init(std::vector<Vector2D> v){
 	std::vector<Vector2D> v2;
 	v2.push_back(v[1]);
 	v2.push_back(v[2]);
-	v2 = boundary->calcIntersection(v2);
-	b = v2[1].distanceTo(center)/2;
-
-	if (normal*(v2[1] - v2[0]) > 0){
+	std::vector<Vector2D> v3 = boundary->calcIntersection(v2);
+	b = v3[1].distanceTo(center)/2;
+	if (normal*(v3[1] - v3[0]) > 0){
 		normal *= -1;
 	}
-	sample();
+	sample(0);
 }
 
-void CyliEdgeSample::sample(){
+void CyliEdgeSample::sample(int flag){
 	double t = b/a;
 	a = endpoint[0].distanceTo(endpoint[1])/2;
 	b = t*a;
+	center = (endpoint[0] + endpoint[1]) * 0.5;
 	/*
 	for (int i=0; i<sampleNum; i++){
 		Vector2D p = getEllipsePoint(i);
@@ -37,12 +38,32 @@ void CyliEdgeSample::sample(){
 		samples2D.push_back(sample+center);
 	}*/
 	double x[4], y[4];
-	x[0] = center.x;             y[0] = center.y;
-	x[1] = endpoint[1].x;        y[1] = endpoint[1].y;  
-	x[2] = center.x + normal.x;	 y[2] = center.y + normal.y;
-	x[3] = center.x;	         y[3] = center.y - b;
+	x[0] = center.x + b * normal.x;             y[0] = center.y - b * normal.y;
+	x[1] = endpoint[0].x;        y[1] = endpoint[0].y;  
+	x[2] = endpoint[1].x;	     y[2] = endpoint[1].y;
+	x[3] = x[0] + normal.x;	 y[3] = y[0] + normal.y;
 
-	std::vector<Vector3D> axes3D = compute3D->calcAxes(x, y);
+	//std::vector<Vector3D> axes3D = compute3D->calcAxes(x, y);
+
+	///////////////////
+	// I changed here
+	InvCamera ic(695, 580, 500, 1000, 10000);
+	double x1[4], y1[4];
+	x1[0] = center.x + b * normal.x;             y1[0] = center.y + b * normal.y;
+	x1[1] = endpoint[0].x;        y1[1] = endpoint[0].y;  
+	x1[2] = endpoint[1].x;	     y1[2] = endpoint[1].y;
+	x1[3] = center.x - normal.x;	 y1[3] = center.y - normal.y;
+	//std::vector<Vector3D> axes3D = compute3D->calcAxes(x, y);
+	std::vector<Vector3D> axes3D;
+	if(flag == 0)
+		axes3D = ic.calcAxes(x1, y1);
+	else
+		axes3D = ic.twoDtothreeD(endpoint);
+	///////////////////
+
+	if(axes3D.size() == 0)
+		return;
+
 	double R = axes3D[1].distanceTo(axes3D[0])+ axes3D[3].distanceTo(axes3D[0]);
 	R /= 2;
 	for (int i=0; i<sampleNum; i++){

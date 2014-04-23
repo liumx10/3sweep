@@ -34,11 +34,12 @@ std::vector<Vector3D> Compute3D::calcAxes(double *x, double *y){
     
     double dd = B*B - 4*A*C;
 	if (dd < 0){
+		//printf("dd = %.21f\n", dd);
 		printf("no resolution\n");
 		std::vector<Vector3D> v;
 		return v;
 	}
-
+	//system("pause");
     z[1] = -B - sqrt( dd);
     z[1] /= 2*A;
     

@@ -1,4 +1,5 @@
 #include "Obj.h"
+#include <iostream>
 
 void Obj::display(){
 	
@@ -31,4 +32,19 @@ void Obj::setTriangle(Triangle &t, Vector3D& v1, Vector3D& v2, Vector3D&v3){
 	t.v[0] = v1;
 	t.v[1] = v2;
 	t.v[2] = v3;
+}
+
+void Obj::debugShow()
+{
+	std::cerr << "\ntopEdge: \n";
+	for(int i=0;i<topEdge.size();i++)
+	{
+		std::cerr << "(" << topEdge[i].x << ',' << topEdge[i].y << ',' << topEdge[i].z << ")  ";
+	}
+	std::cerr << std::endl;
+	std::cerr << "trangles: \n";
+	for(int i=0;i<topEdge.size();i++)
+	{
+	}
+	std::cerr << "\n--------------\n";
 }

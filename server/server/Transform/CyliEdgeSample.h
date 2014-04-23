@@ -10,7 +10,7 @@ public:
 	CyliEdgeSample(){}
 	void init(std::vector<Vector2D> v);
 	EdgeSample* clone();
-	void sample();
+	void sample(int flag);
 
 	double getA() { return a; }
 	double getB() { return b; }
