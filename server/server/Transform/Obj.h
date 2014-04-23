@@ -15,6 +15,8 @@ public:
 	void setWidth(int w) { sceneWidth = w; }
 
 	void setTriangle(Triangle &t, Vector3D&, Vector3D&, Vector3D&);
+
+	void debugShow();
 private:
 	void display();
 	int sampleNum;

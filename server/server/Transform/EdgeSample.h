@@ -11,7 +11,7 @@ public:
 	EdgeSample(){
 	}
 	virtual void init(std::vector<Vector2D>) = 0;   // initlize by user's input. only the first will use this function
-	virtual void sample() = 0;  // calculate the sample points' coordinates after adjusting normal and endpoint
+	virtual void sample(int) = 0;  // calculate the sample points' coordinates after adjusting normal and endpoint
 	virtual EdgeSample* clone() = 0;
 
 	std::vector<Vector2D> getSamples2D() { return samples2D; }
@@ -38,6 +38,8 @@ public:
 	Compute3D *compute3D;
 
 	static int sampleNum;
+
+	void debugShow();
 };
 
 #endif
